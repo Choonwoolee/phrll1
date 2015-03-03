@@ -1,0 +1,199 @@
+<!doctype html>
+<html  ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  
+  <title>P&H Research</title>  
+  
+  <link rel="stylesheet" href="lib/onsen/css/onsenui.css">  
+  <link rel="stylesheet" href="lib/onsen/css/onsen-css-components.css">  
+  <script src="lib/onsen/js/angular/angular.js"></script>    
+  <script src="lib/onsen/js/onsenui.js"></script>    
+  <script src="js/common.js"></script>   
+  <script src="cordova.js"></script>
+  <script src="js/app.js"></script> 
+
+  <script>
+
+
+    angular.module('app', ['onsen']);
+
+    angular.module('app').controller('AppController', function($scope) {
+      $scope.doSomething = function() {
+        setTimeout(function() {
+          alert('tapped');
+        }, 100);
+      };
+      $scope.alert1 = function(){
+        location.href="rotate.html"
+      }
+      $scope.init = function(){
+        navigator.geolocation.getCurrentPosition(geolocationSuccess,geolocationError);
+      }
+    });
+  </script>
+
+  <style>
+    .page__background {
+      background-color: #fff;
+    }
+    .topbar{
+      position: absolute; top: 0px; left: 0px; right:0px; height: 9px;background-color: rgb(231, 76, 60);
+    }
+    .bottombar{
+      position: absolute; bottom: 0px; left: 0px; right:0px; height: 9px;background-color: rgb(231, 76, 60);
+    }
+    .to-wrapper {
+      line-height: 1;
+      padding: 10px;
+    }
+    .item {
+      padding: 10px;
+      line-height: 1;
+    }
+
+    .start_button{
+      width: 200px;
+      font-family: HanSans;
+      font-size: 24px;
+      font-weight: bold;
+      background-color: rgb(39, 174, 96);
+      margin: 0 auto;
+      height:54px;
+      line-height: 54px;
+    }
+    .logo_box{
+        height:54px;
+     }
+     .start_box{
+        margin-top: 20px;
+     }
+    .help_box{
+        margin-top: 20px;
+     }
+    .setup_box{
+        margin-top: 10px;
+     }
+    .ph_box{
+      margin-top: 60px;
+        height:54px;
+
+     }
+    .logo{
+      vertical-align: middle;
+      width:48px;
+      height:48px;
+      display:inline-block;
+    }
+    .help{
+      height:32px;
+      vertical-align: middle;
+      display:inline-block;
+    }
+    .setup{
+      height:32px;
+      vertical-align: middle;
+      display:inline-block;
+    }
+    .ph{
+      vertical-align: middle;
+      width:48px;
+      height:48px;
+      display:inline-block;
+    }
+    .phlogo{
+      vertical-align: middle;
+      width:48px;
+      height:48px;
+    }
+    .ph_text{
+      width:170px;
+      display: inline-block;
+      font-weight: bold; 
+      font-size: 24px; 
+      text-align: center; 
+      font-family: Gulim; 
+      color: rgb(192, 57, 43); 
+      vertical-align: middle;      
+      line-height: 48px;
+      height: 48px;
+    }
+     .setup_button{
+      vertical-align: middle;
+      width:120px;
+      font-weight: bold; 
+      font-family: Gulim; 
+      display: inline-block;
+      height:32px;
+      line-height: 22px;
+      font-size: 17px;
+      background-color: rgb(94, 94, 94);
+
+    }
+    .logo_text{
+      width:200px;
+      display: inline-block;
+      font-weight: bold; 
+      font-size: 36px; 
+      text-align: center; 
+      font-family: Gulim; 
+      color: rgb(192, 57, 43); 
+      vertical-align: middle;      
+      line-height: 48px;
+      height: 48px;
+    }
+    .help_button{
+      vertical-align: middle;
+      width:120px;
+      font-weight: bold; 
+      font-family: Gulim; 
+      display: inline-block;
+      height:32px;
+      line-height: 22px;
+      font-size: 17px;
+      background-color: rgb(243, 156, 18);
+
+    }
+    .container1{
+      width:100%;
+      height:100%;
+      margin-left: auto;
+      margin-right: auto;
+      text-align:center;
+    }
+    .container2 {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+  </style>
+  
+</head>
+
+<body ng-controller="AppController"  data-ng-init="init()">    
+  
+  <ons-page>
+    <div class="topbar"></div>
+    <div class="bottombar"></div>
+  
+    <div class="container1">
+      <div class="container2">
+
+        
+         <div class="help_box">
+          <div class="help">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32" fill="rgb(243, 156, 18)" data-svg-content="true"><g><path d="M 16,32c 8.836,0, 16-7.164, 16-16s-7.164-16-16-16S0,7.164,0,16S 7.164,32, 16,32z M 16,4c 3.982,0, 8,2.28, 8,7.376 c0,2.966-1.47,5.282-4.368,6.876C 18.792,18.714, 18,19.628, 18,20c0,1.104-0.896,2-2,2s-2-0.896-2-2c0-2.538, 2.328-4.496, 3.704-5.252 C 19.726,13.632, 20,12.416, 20,11.376C 20,8.438, 17.494,8, 16,8C 14.074,8, 12,9.264, 12,12.042c0,1.104-0.896,2-2,2s-2-0.896-2-2 C 8,6.818, 12.122,4, 16,4z M 16,28.088c-1.138,0-2.060-0.922-2.060-2.060s 0.922-2.060, 2.060-2.060s 2.060,0.922, 2.060,2.060S 17.138,28.088, 16,28.088z "></path></g></svg>
+          </div>
+          <ons-button modifier="large" class="help_button" style="margin: 0 auto;" ng-click="alert1()">How to Use</ons-button>
+        </div>
+
+        <div data-text-content="true" style="font-size: 17px; font-family: Gulim; color: rgb(0, 0, 0); font-weight: bold;" class="" spellcheck="false"><p>The mechanism for this app originates from the rotation of the earth. So, it is critical to select your current location in the <span style="line-height: 38.0952415466309px; color: rgb(255, 255, 255); background-color: rgb(94, 94, 94);">SETUP</span> MENU before you begin utilizing the application. </p><p><span style="font-size: 20px; font-weight: bold; line-height: 38.0952415466309px;">Press <span style="color: rgb(255, 255, 255); background-color: rgb(39, 174, 96);">START</span>, </span>then position the center of the screen where you are feeling  pain.</p><p>Check your pain level before &amp; after.&nbsp;</p><p><span style="line-height: 1.42857143;">Use everyday for 5 min - 30 min</span></p><p><span style="color: rgb(192, 57, 43);">Do not use on areas without pain.</span></p></div>
+      </div>
+
+    </div>
+  </ons-page>   
+</body>
+</html>
