@@ -1,9 +1,9 @@
 <!doctype html>
-<html  ng-app="app">
+<html ng-app="app">
 <head>
-  <meta charset="utf-8">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="mobile-web-app-capable" content="yes">
+  <meta charset="utf-8" />
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="mobile-web-app-capable" content="yes" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
   
   <title>P&H Research</title>  
   
@@ -12,13 +12,29 @@
   <script src="lib/onsen/js/angular/angular.js"></script>    
   <script src="lib/onsen/js/onsenui.js"></script>    
   <script src="js/common.js"></script>   
+  <script src="js/angular-gettext.min.js"></script>   
+  <script src="js/translations.js"></script>   
   <script src="cordova.js"></script>
   <script src="js/app.js"></script> 
 
   <script>
+    var admobid = {};
+    if( /(android)/i.test(navigator.userAgent) ) { // for android
+
+        admobid = {
+            banner: 'ca-app-pub-3643746916000001/8373403771', // or DFP format "/6253334/dfp_example_ad"
+            interstitial: 'ca-app-pub-3643746916000001/8373403771'
+        };
+    } else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) { // for ios
+        admobid = {
+            banner: 'ca-app-pub-3643746916000001/2869765773', // or DFP format "/6253334/dfp_example_ad"
+            interstitial: 'ca-app-pub-3643746916000001/2869765773'
+        };
+    } 
 
 
-    angular.module('app', ['onsen']);
+
+    angular.module('app', ['onsen','gettext']);
 
     angular.module('app').controller('AppController', function($scope) {
       $scope.doSomething = function() {
@@ -26,16 +42,43 @@
           alert('tapped');
         }, 100);
       };
-      $scope.alert1 = function(){
+      $scope.rotate = function(){
         location.href="rotate.html"
       }
       $scope.howtouse = function(){
         location.href="howtouse.html"
       }
+      $scope.setup = function(){
+        location.href="setup.html"
+      }
       $scope.init = function(){
-        navigator.geolocation.getCurrentPosition(geolocationSuccess,geolocationError);
+       
       }
     });
+    setLocale();
+    angular.module('app').run(function (gettextCatalog) {
+      var language = getLocale();
+      gettextCatalog.setCurrentLanguage(language);
+      gettextCatalog.debug = true;
+   });
+
+    document.addEventListener('deviceready', function onDeviceReady() {
+
+      getCurrentPosition();
+      window.plugins.insomnia.keepAwake();
+      StatusBar.hide();
+      if(AdMob) {
+        AdMob.createBanner( {
+        adId: admobid.banner, 
+        position: AdMob.AD_POSITION.TOP_CENTER, 
+        autoShow: true } );
+
+      }
+
+    }, false);
+
+   
+
   </script>
 
   <style>
@@ -81,7 +124,6 @@
      }
     .ph_box{
       margin-top: 100px;
-        height:54px;
 
      }
     .logo{
@@ -138,7 +180,7 @@
       width:200px;
       display: inline-block;
       font-weight: bold; 
-      font-size: 36px; 
+      font-size: 32px; 
       text-align: center; 
       font-family: Gulim; 
       color: rgb(192, 57, 43); 
@@ -164,11 +206,17 @@
       margin-left: auto;
       margin-right: auto;
       text-align:center;
+      -webkit-transform-style: preserve-3d;
+      -moz-transform-style: preserve-3d;
+      transform-style: preserve-3d;
     }
     .container2 {
       position: relative;
+
       top: 50%;
       transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
     }
 
   </style>
@@ -179,7 +227,7 @@
   
   <ons-page>
     <div class="topbar"></div>
-    <div class="bottombar"></div>
+
   
     <div class="container1">
       <div class="container2">
@@ -189,36 +237,37 @@
 
           <div class="logo" data-obj-type="icon"  ><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" data-svg-content="true" fill="rgb(192, 57, 43)"><path d="M38 6H10c-2.21 0-3.98 1.79-3.98 4L6 38c0 2.21 1.79 4 4 4h28c2.21 0 4-1.79 4-4V10c0-2.21-1.79-4-4-4zm-2 22h-8v8h-8v-8h-8v-8h8v-8h8v8h8v8z"></path></svg>
           </div>
-          <div class="logo_text">Pain Doctor</div>
+          <div class="logo_text" translate>Pain Doctor</div>
 
         </div>
        <div class="start_box">
-          <ons-button modifier="large"  class="start_button"  ng-click="alert1()">
-            Start
+          <ons-button modifier="large"  class="start_button"  ng-click="rotate()" >
+            <span translate>Start</span>
           </ons-button>
         </div>
          <div class="help_box">
           <div class="help">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32" fill="rgb(243, 156, 18)" data-svg-content="true"><g><path d="M 16,32c 8.836,0, 16-7.164, 16-16s-7.164-16-16-16S0,7.164,0,16S 7.164,32, 16,32z M 16,4c 3.982,0, 8,2.28, 8,7.376 c0,2.966-1.47,5.282-4.368,6.876C 18.792,18.714, 18,19.628, 18,20c0,1.104-0.896,2-2,2s-2-0.896-2-2c0-2.538, 2.328-4.496, 3.704-5.252 C 19.726,13.632, 20,12.416, 20,11.376C 20,8.438, 17.494,8, 16,8C 14.074,8, 12,9.264, 12,12.042c0,1.104-0.896,2-2,2s-2-0.896-2-2 C 8,6.818, 12.122,4, 16,4z M 16,28.088c-1.138,0-2.060-0.922-2.060-2.060s 0.922-2.060, 2.060-2.060s 2.060,0.922, 2.060,2.060S 17.138,28.088, 16,28.088z "></path></g></svg>
           </div>
-          <ons-button modifier="large" class="help_button" style="margin: 0 auto;" ng-click="howtouse()">How to Use</ons-button>
+          <ons-button modifier="large" class="help_button" style="margin: 0 auto;" ng-click="howtouse()"><span translate>How to Use</span></ons-button>
         </div>
 <!--
          <div class="setup_box">
           <div class="setup">
            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32" fill="rgb(94, 94, 94)" data-svg-content="true"><g><path d="M 27.526,12.682c-0.252-0.876-0.594-1.71-1.028-2.492l 1.988-4.182c-0.738-0.92-1.574-1.756-2.494-2.494 l-4.182,1.988c-0.78-0.432-1.616-0.776-2.492-1.028L 17.762,0.102C 17.184,0.038, 16.596,0, 16,0S 14.816,0.038, 14.238,0.102L 12.682,4.474 C 11.808,4.726, 10.972,5.070, 10.192,5.502L 6.008,3.514c-0.92,0.738-1.756,1.574-2.494,2.494l 1.988,4.182 c-0.432,0.78-0.776,1.616-1.028,2.492L 0.102,14.238C 0.038,14.816,0,15.404,0,16s 0.038,1.184, 0.102,1.762l 4.374,1.556 c 0.252,0.876, 0.594,1.71, 1.028,2.492l-1.988,4.182c 0.738,0.92, 1.574,1.758, 2.494,2.494l 4.182-1.988 c 0.78,0.432, 1.616,0.776, 2.492,1.028l 1.556,4.374C 14.816,31.962, 15.404,32, 16,32s 1.184-0.038, 1.762-0.102l 1.556-4.374 c 0.876-0.252, 1.71-0.594, 2.492-1.028l 4.182,1.988c 0.92-0.738, 1.758-1.574, 2.494-2.494l-1.988-4.182 c 0.432-0.78, 0.776-1.616, 1.028-2.492l 4.374-1.556C 31.962,17.184, 32,16.596, 32,16s-0.038-1.184-0.102-1.762L 27.526,12.682z M 16,24 c-4.418,0-8-3.582-8-8c0-4.418, 3.582-8, 8-8s 8,3.582, 8,8C 24,20.418, 20.418,24, 16,24zM 12,16A4,4 1080 1 0 20,16A4,4 1080 1 0 12,16z"></path></g></svg>
           </div>
-          <ons-button modifier="large" class="setup_button" style="margin: 0 auto;" ng-click="alert1()">Setup</ons-button>
+          <ons-button modifier="large" class="setup_button" style="margin: 0 auto;" ng-click="setup()">Setup</ons-button>
         </div>
 -->
-          <div class="ph_box">
+        <div class="ph_box">
           <div class="ph">
            <img class="phlogo" src="img/phlogosimple.png"/>
           </div>
-          <div class="ph_text">P&H Research, LLC</div>
-    </div>
+          <div class="ph_text"><a href="#" onclick="window.open('http://www.phrll.com', '_system');">P&H Research, LLC</a></div>
+        </div>
       </div>
     </div>
+    <div class="bottombar"></div>
   </ons-page>   
 </body>
 </html>

@@ -1,20 +1,50 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.phrll.app2" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.phrll.app2" version="1.02" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <preference name="loglevel" value="DEBUG" />
+    <feature name="AdMob">
+        <param name="android-package" value="com.rjfun.cordova.admob.AdMobPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Brightness">
+        <param name="android-package" value="org.apache.cordova.plugin.Brightness.BrightnessPlugin" />
+    </feature>
+    <feature name="Insomnia">
+        <param name="android-package" value="nl.xservices.plugins.Insomnia" />
+    </feature>
+    <feature name="Notification">
+        <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
+    </feature>
+    <feature name="Globalization">
+        <param name="android-package" value="org.apache.cordova.globalization.Globalization" />
+    </feature>
+    <feature name="InAppBrowser">
+        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+    </feature>
+    <feature name="AppRate">
+        <param name="android-package" value="org.pushandplay.cordova.apprate.AppRate" />
+    </feature>
+    <feature name="StatusBar">
+        <param name="android-package" value="org.apache.cordova.statusbar.StatusBar" />
+        <param name="onload" value="true" />
+    </feature>
     <splash density="port-hdpi" src="res/drawable-hdpi/splash.9.png" />
     <splash density="port-mdpi" src="res/drawable-mdpi/splash.9.png" />
     <splash density="port-xhdpi" src="res/drawable-xhdpi/splash.9.png" />
     <splash density="port-xxhdpi" src="res/drawable-xxhdpi/splash.9.png" />
-    <name>App2</name>
+    <icon density="mdpi" src="res/drawable-mdpi/ic_launcher.png" />
+    <icon density="hdpi" src="res/drawable-hdpi/ic_launcher.png" />
+    <icon density="xhdpi" src="res/drawable-xhdpi/ic_launcher.png" />
+    <name>Pain Doctor</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Pain Doctor
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="support@phrll.com" href="http://www.phrll.com">
+        Phrll Team
     </author>
     <content src="index.html" />
     <access origin="*" />
-    <preference name="SplashScreenDelay" value="10000" />
     <preference name="Orientation" value="portrait" />
     <preference name="Fullscreen" value="true" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
 </widget>

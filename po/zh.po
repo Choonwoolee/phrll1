@@ -1,0 +1,52 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.7.6\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: zh\n"
+
+#: www/howtouse.html:129
+msgid "Do not use on areas where there is no pain."
+msgstr "不要使用在無疼痛的地方。"
+
+#: www/howtouse.html:127
+msgid ""
+"Hold in place for 5 - 10 minutes as needed. Check pain levels before and "
+"after use."
+msgstr "按需要，使用約5 - 10分鐘。檢查用前及用後疼痛程度的變化."
+
+#: www/index.html:252
+msgid "How to Use"
+msgstr "如何使用"
+
+#: www/index.html:240
+msgid "Pain Doctor"
+msgstr "疼痛醫生"
+
+#: www/howtouse.html:125
+msgid "Press START"
+msgstr "按START"
+
+#: www/rotate.html:158
+msgid "Put the center of the red circle"
+msgstr "然後放置红圈的中心"
+
+#: www/index.html:245
+msgid "Start"
+msgstr "開始"
+
+#: www/rotate.html:158
+msgid "on where you are feeling  pain."
+msgstr "在你感到疼痛的地方."
+
+#: www/howtouse.html:119
+msgid ""
+"then position the center of the red circle on where you are feeling pain."
+msgstr "然後放置红圈的中心在你感到疼痛的地方."

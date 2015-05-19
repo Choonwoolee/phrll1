@@ -1,0 +1,54 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.7.6\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: es\n"
+
+#: www/howtouse.html:129
+msgid "Do not use on areas where there is no pain."
+msgstr "No lo use en áreas donde no hay dolor."
+
+#: www/howtouse.html:127
+msgid ""
+"Hold in place for 5 - 10 minutes as needed. Check pain levels before and "
+"after use."
+msgstr ""
+"Mantener en su lugar durante 5 - 10 minutos, según sea necesario. "
+"Compruebe los niveles de dolor antes y después de su uso."
+
+#: www/index.html:252
+msgid "How to Use"
+msgstr "Cómo utilizar"
+
+#: www/index.html:240
+msgid "Pain Doctor"
+msgstr "Pain Doctor"
+
+#: www/howtouse.html:125
+msgid "Press START"
+msgstr "Pulse START"
+
+#: www/rotate.html:158
+msgid "Put the center of the red circle"
+msgstr "Coloque el centro del círculo rojo en donde se siente el dolor."
+
+#: www/index.html:245
+msgid "Start"
+msgstr "comienzo"
+
+#: www/rotate.html:158
+msgid "on where you are feeling  pain."
+msgstr ""
+
+#: www/howtouse.html:119
+msgid ""
+"then position the center of the red circle on where you are feeling pain."
+msgstr "coloque el centro del círculo rojo en donde se siente el dolor."

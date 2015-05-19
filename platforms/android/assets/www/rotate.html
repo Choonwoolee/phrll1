@@ -12,25 +12,31 @@
    
   <script src="lib/onsen/js/angular/angular.js"></script>    
   <script src="lib/onsen/js/onsenui.js"></script>    
-
+  <script src="js/common.js"></script>   
+  <script src="js/angular-gettext.min.js"></script>  
+  <script src="js/translations.js"></script>  
   <script src="cordova.js"></script>
   <script src="js/app.js"></script> 
 
   <script type="text/javascript">
-    var degree = 360;
-    var i = 0;
-    var rotate = function(num){
-        
-        degree += parseInt(num);
-        document.getElementById("myCanvas").style.WebkitTransform = "rotate("+degree+"deg)";
-        if (degree > 360 ){
-            degree = degree - 360;
-        } 
-        i++;
-       // console.debug(document.getElementById("myCanvas").style.WebkitTransform );
+
+
+    var degree = 0;
+    var rotate = function(num,isNorthern){
+          degree += parseInt(num);
+          var rotate_degree = degree;
+          if(isNorthern == 0){
+            rotate_degree = (-1) * degree;
+          }
+          document.getElementById("myCanvas").style.WebkitTransform = "rotate("+rotate_degree+"deg)";
+          if (degree > 360 ){
+              degree = 0;
+          } 
+          // console.debug(document.getElementById("myCanvas").style.WebkitTransform );
       };
 
-    angular.module('app', ['onsen']);
+    
+    angular.module('app', ['onsen','gettext']);
 
     angular.module('app').controller('AppController', function($scope) {
       $scope.rotateTimer;
@@ -38,7 +44,7 @@
       $scope.stop = function(){
         location.href="index.html"
       };
-      $scope.drawSpiral = function(lineWidth){
+      $scope.drawSpiral = function(lineWidth,isNorthern){
          var canvas = document.getElementById("myCanvas");
         var context = canvas.getContext("2d");
 
@@ -46,34 +52,49 @@
         var angle = 0;
         context.clearRect(0, 0, canvas.width, canvas.height);
         context.lineWidth = lineWidth;
-        context.strokeStyle = "red"; // blue-ish color
+        context.strokeStyle = "red"; 
         context.beginPath();
         context.moveTo(canvas.width / 2, canvas.height / 2);
-
         for (var n = 0; n < 1600; n++) {
           radius += 0.1;
-          // make a complete circle every 50 iterations
           angle += (Math.PI * 2) / 50;
-          var x = canvas.width / 2 + radius * Math.sin(angle) ;
-          var y = canvas.height / 2 + radius * Math.cos(angle) ;
+          if(isNorthern==1){
+            var x = canvas.width / 2 + radius * Math.sin(angle) ;
+            var y = canvas.height / 2 + radius * Math.cos(angle) ;
+            context.lineTo(x, y);
+           }else{
+            var x = canvas.width / 2 + radius * Math.cos(angle) ;
+            var y = canvas.height / 2 + radius * Math.sin(angle) ; 
+            context.lineTo(x, y);
+           } 
           
-          context.lineTo(x, y);
         }
         context.stroke();
       }
       $scope.init = function(){ 
-        $scope.drawSpiral(2);
-        $scope.rotateTimer = setInterval( function(){ rotate(15); }, 1);
+        
+        $scope.drawSpiral(2,isNorthern());
+        $scope.rotateTimer = setInterval( function(){ rotate(15,isNorthern()); }, 1);
+
       }
       $scope.resetRotate = function(){
         clearInterval($scope.rotateTimer);
 
-        $scope.drawSpiral(2);
-        $scope.rotateTimer = setInterval( function(){ rotate(15); }, 1);
+        $scope.drawSpiral(2,isNorthern());
+        $scope.rotateTimer = setInterval( function(){ rotate(15,isNorthern()); }, 1);
      
       }
 
     });
+    angular.module('app').run(function (gettextCatalog) {
+      var language = getLocale();
+      gettextCatalog.setCurrentLanguage(language);
+      gettextCatalog.debug = true;
+   });
+    document.addEventListener('deviceready', function onDeviceReady() {
+               if(AdMob) AdMob.removeBanner();
+     }, false);
+
 
 
   </script>
@@ -88,17 +109,23 @@
     .bottombar{
       position: absolute; bottom: 0px; left: 0px; right:0px; height: 9px;background-color: rgb(39, 174, 96);
     }
-     .container1{
+    .container1{
       width:100%;
       height:100%;
       margin-left: auto;
       margin-right: auto;
       text-align:center;
+      -webkit-transform-style: preserve-3d;
+      -moz-transform-style: preserve-3d;
+      transform-style: preserve-3d;
     }
     .container2 {
       position: relative;
+
       top: 50%;
       transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
     }
     .closebutton{
         right:0px;
@@ -127,8 +154,8 @@
 <body ng-controller="AppController" data-ng-init="init()">    
 <ons-page class=".black">
   <div class="topbar"></div>
-  <div class="bottombar"></div>
-  <div class="intro" style="">Put the center of the screen&nbsp;<div>where you are feeling  pain.</div></div>
+  
+  <div class="intro" style="" ><div translate>Put the center of the red circle</div><div translate>on where you are feeling  pain.</div></div>
 
   <div class="container1">
     <div class="container2">
@@ -138,12 +165,10 @@
     </div>
   </div>
     <div class="closebutton">
-        <ons-button class="stopbutton" modifier="quiet" ng-click="stop()">Stop</ons-button>
+        <ons-button class="stopbutton" modifier="quiet" ng-click="stop()">Home</ons-button>
     </div>
-    </div>
+  </div>
+  <div class="bottombar"></div>
 </ons-page>   
-<script type="text/javascript">
-  
-</script>
 </body>
 </html>

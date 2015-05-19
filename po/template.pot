@@ -1,0 +1,41 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: www/howtouse.html:129
+msgid "Do not use on areas where there is no pain."
+msgstr ""
+
+#: www/howtouse.html:127
+msgid "Hold in place for 5 - 10 minutes as needed. Check pain levels before and after use."
+msgstr ""
+
+#: www/index.html:252
+msgid "How to Use"
+msgstr ""
+
+#: www/index.html:240
+msgid "Pain Doctor"
+msgstr ""
+
+#: www/howtouse.html:125
+msgid "Press START"
+msgstr ""
+
+#: www/rotate.html:158
+msgid "Put the center of the red circle"
+msgstr ""
+
+#: www/index.html:245
+msgid "Start"
+msgstr ""
+
+#: www/rotate.html:158
+msgid "on where you are feeling  pain."
+msgstr ""
+
+#: www/howtouse.html:125
+msgid "then position the center of the red circle on where you are feeling pain."
+msgstr ""

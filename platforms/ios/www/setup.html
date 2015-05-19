@@ -1,0 +1,138 @@
+<!doctype html>
+<html  ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  
+  <title>P&H Research</title>  
+  
+  <link rel="stylesheet" href="lib/onsen/css/onsenui.css">  
+  <link rel="stylesheet" href="lib/onsen/css/onsen-css-components.css">  
+  <script src="lib/onsen/js/angular/angular.js"></script>    
+  <script src="lib/onsen/js/onsenui.js"></script>    
+  <script src="js/common.js"></script>   
+  <script src="cordova.js"></script>
+  <script src="js/app.js"></script> 
+
+  <script>
+
+
+    angular.module('app', ['onsen']);
+
+    angular.module('app').controller('AppController', function($scope) {
+      $scope.changeHemisphere = function(isNorthern) {
+        if(isNorthern){
+          window.localStorage.setItem("isNorthern",1);
+        }else{
+          window.localStorage.setItem("isNorthern",0);
+        }
+      };
+      $scope.isNorthern = isNorthern();
+      
+      $scope.init = function(){
+      }
+
+      $scope.stop = function(){
+        location.href="index.html"
+      };
+
+    });
+  </script>
+
+  <style>
+    .page__background {
+      background-color: #fff;
+    }
+    .topbar{
+      position: absolute; top: 0px; left: 0px; right:0px; height: 9px;background-color: rgb(231, 76, 60);
+    }
+    .bottombar{
+      position: absolute; bottom: 0px; left: 0px; right:0px; height: 9px;background-color: rgb(231, 76, 60);
+    }
+    .setup{
+      height:32px;
+      vertical-align: middle;
+      display:inline-block;
+    }
+    .setup_box{
+        margin-bottom: 20px;
+     }
+    .setup_button{
+      vertical-align: middle;
+      width:120px;
+      font-weight: bold; 
+      font-family: Gulim; 
+      display: inline-block;
+      height:32px;
+      line-height: 22px;
+      font-size: 17px;
+      background-color: rgb(94, 94, 94);
+
+    }
+    .closebutton{
+        right:0px;
+        bottom:0px;
+        position: absolute;
+        margin-bottom: 10px;
+    }
+    .container1{
+      width:90%;
+      height:100%;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 40px;
+      padding-right: 40px;
+
+    }
+    .container2 {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+  </style>
+  
+</head>
+
+<body ng-controller="AppController"  data-ng-init="init()">    
+  
+  <ons-page>
+    <div class="topbar"></div>
+    <div class="bottombar"></div>
+  
+    <div class="container1">
+      <div class="container2">
+        <div class="setup_box">
+          <div class="setup">
+           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32" fill="rgb(94, 94, 94)" data-svg-content="true"><g><path d="M 27.526,12.682c-0.252-0.876-0.594-1.71-1.028-2.492l 1.988-4.182c-0.738-0.92-1.574-1.756-2.494-2.494 l-4.182,1.988c-0.78-0.432-1.616-0.776-2.492-1.028L 17.762,0.102C 17.184,0.038, 16.596,0, 16,0S 14.816,0.038, 14.238,0.102L 12.682,4.474 C 11.808,4.726, 10.972,5.070, 10.192,5.502L 6.008,3.514c-0.92,0.738-1.756,1.574-2.494,2.494l 1.988,4.182 c-0.432,0.78-0.776,1.616-1.028,2.492L 0.102,14.238C 0.038,14.816,0,15.404,0,16s 0.038,1.184, 0.102,1.762l 4.374,1.556 c 0.252,0.876, 0.594,1.71, 1.028,2.492l-1.988,4.182c 0.738,0.92, 1.574,1.758, 2.494,2.494l 4.182-1.988 c 0.78,0.432, 1.616,0.776, 2.492,1.028l 1.556,4.374C 14.816,31.962, 15.404,32, 16,32s 1.184-0.038, 1.762-0.102l 1.556-4.374 c 0.876-0.252, 1.71-0.594, 2.492-1.028l 4.182,1.988c 0.92-0.738, 1.758-1.574, 2.494-2.494l-1.988-4.182 c 0.432-0.78, 0.776-1.616, 1.028-2.492l 4.374-1.556C 31.962,17.184, 32,16.596, 32,16s-0.038-1.184-0.102-1.762L 27.526,12.682z M 16,24 c-4.418,0-8-3.582-8-8c0-4.418, 3.582-8, 8-8s 8,3.582, 8,8C 24,20.418, 20.418,24, 16,24zM 12,16A4,4 1080 1 0 20,16A4,4 1080 1 0 12,16z"></path></g></svg>
+          </div>
+          <ons-button modifier="large" class="setup_button" style="margin: 0 auto;" ng-click="alert1()">Setup</ons-button>
+        </div>
+
+        <div >
+          <ul class="list">
+            <li class="list__item list__item--tappable">
+              <label class="radio-button radio-button--list-item"  ng-click="changeHemisphere(true);">
+                <input type="radio" name="b" id="northern" ng-model="isNorthern" value="1">
+                <div class="radio-button__checkmark radio-button--list-item__checkmark"></div>
+                  Northern Hemisphere
+              </label>
+            </li>
+            <li class="list__item list__item--tappable">
+              <label class="radio-button radio-button--list-item"  ng-click="changeHemisphere(false);">
+                <input type="radio" name="b" id="southern" ng-model="isNorthern" value="0">
+                <div class="radio-button__checkmark radio-button--list-item__checkmark"></div>
+                  Southern Hemisphere
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+          <div class="closebutton">
+        <ons-button class="stopbutton" modifier="quiet" ng-click="stop()">Home</ons-button>
+    </div>
+    </div>
+  </ons-page>   
+</body>
+</html>

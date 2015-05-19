@@ -1,0 +1,54 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.7.6\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: ko\n"
+
+#: www/howtouse.html:123
+msgid "Do not use on areas where there is no pain."
+msgstr "통증이 없는 곳에는 사용하지 마십시오."
+
+#: www/howtouse.html:121
+msgid "Hold in place for 5 - 10 minutes as needed. Check pain levels before and after use."
+msgstr "필요한 만큼 대략 5~10분 사용합니다.  사용 전후의 통증 변화를 확인합니다."
+
+#: www/index.html:248
+msgid "How to Use"
+msgstr "사용방법"
+
+#: www/index.html:236
+msgid "Pain Doctor"
+msgstr "통증 닥터"
+
+#: www/howtouse.html:119
+msgid "Press START"
+msgstr "시작을 누르고,  "
+
+#: www/rotate.html:153
+msgid "Put the center of the red circle"
+msgstr "붉은 원의 중심을 "
+
+#: www/howtouse.html:119
+msgid "START"
+msgstr ""
+
+#: www/index.html:240
+msgid "Start"
+msgstr "시작"
+
+#: www/rotate.html:153
+msgid "on where you are feeling  pain."
+msgstr "당신이 통증을 느끼고 있는 곳에 놓습니다."
+
+#: www/howtouse.html:119
+msgid ""
+"then position the center of the red circle on where you are feeling pain."
+msgstr "붉은 원의 중심을 당신이 통증을 느끼고 있는 곳에 놓습니다."

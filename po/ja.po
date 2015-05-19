@@ -1,0 +1,53 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.7.6\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: ja\n"
+
+#: www/howtouse.html:129
+msgid "Do not use on areas where there is no pain."
+msgstr "痛みのないところには使用しないでください。"
+
+#: www/howtouse.html:127
+msgid ""
+"Hold in place for 5 - 10 minutes as needed. Check pain levels before and "
+"after use."
+msgstr ""
+"必要に応じて、約5〜10分使用します。使用前後の痛みの変化を確認します。"
+
+#: www/index.html:252
+msgid "How to Use"
+msgstr "使用方法"
+
+#: www/index.html:240
+msgid "Pain Doctor"
+msgstr "痛みドクター"
+
+#: www/howtouse.html:125
+msgid "Press START"
+msgstr "[スタート]をクリックして"
+
+#: www/rotate.html:158
+msgid "Put the center of the red circle"
+msgstr "痛みがあるところ赤い円の中心を置きます."
+
+#: www/index.html:245
+msgid "Start"
+msgstr "開始"
+
+#: www/rotate.html:158
+msgid "on where you are feeling  pain."
+msgstr ""
+
+#: www/howtouse.html:125
+msgid ""
+"then position the center of the red circle on where you are feeling pain."
+msgstr "赤い円の中心を、あなたが痛みを感じている場所に置きます."

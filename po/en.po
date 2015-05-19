@@ -1,0 +1,51 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.7.6\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: en\n"
+
+#: www/howtouse.html:123
+msgid "Do not use on areas where there is no pain."
+msgstr "Do not use on areas where there is no pain."
+
+#: www/howtouse.html:121
+msgid "Hold in place for 5 - 10 minutes as needed. Check pain levels before and after use."
+msgstr "Hold in place for 5 - 10 minutes as needed. Check pain levels before and after use."
+
+#: www/index.html:248
+msgid "How to Use"
+msgstr "How to Use"
+
+#: www/index.html:236
+msgid "Pain Doctor"
+msgstr "Pain Doctor"
+
+#: www/howtouse.html:119
+msgid "Press START"
+msgstr "Press START"
+
+#: www/rotate.html:153
+msgid "Put the center of the red circle"
+msgstr "Put the center of the red circle"
+
+#: www/index.html:240
+msgid "Start"
+msgstr "Start"
+
+#: www/rotate.html:153
+msgid "on where you are feeling  pain."
+msgstr "on where you are feeling  pain."
+
+#: www/howtouse.html:119
+msgid ""
+"then position the center of the red circle on where you are feeling pain."
+msgstr ""
+"then position the center of the red circle on where you are feeling pain."
